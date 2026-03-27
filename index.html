@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Walking Animation Demo</title>
+
+<style>
+body{
+    background:#111;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+
+.scene{
+    position:relative;
+    width:400px;
+    height:400px;
+    margin:40px auto;
+}
+
+/* missile group */
+.missiles{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    gap:10px;
+}
+
+/* single missile */
+.missile{
+    width:30px;
+    height:120px;
+    background:#555;
+    border-radius:10px;
+    position:relative;
+}
+
+/* missile tip */
+.missile::before{
+    content:"";
+    position:absolute;
+    top:-20px;
+    left:0;
+    width:0;
+    height:0;
+    border-left:15px solid transparent;
+    border-right:15px solid transparent;
+    border-bottom:20px solid red;
+}
+
+/* missile fins */
+.missile::after{
+    content:"";
+    position:absolute;
+    bottom:-10px;
+    left:-8px;
+    width:46px;
+    height:10px;
+    background:#333;
+}
+
+/* label */
+.label{
+    position:absolute;
+    bottom:-25px;
+    width:100%;
+    font-size:14px;
+    text-align:center;
+}
+
+/* character walking */
+.character{
+    position:absolute;
+    width:40px;
+    height:80px;
+    transform-origin:200px 200px;
+    animation:walkCircle 8s linear infinite;
+}
+
+.head{
+    width:30px;
+    height:30px;
+    background:#f2c6a0;
+    border-radius:50%;
+    margin:auto;
+}
+
+.body{
+    width:25px;
+    height:40px;
+    background:black;
+    margin:auto;
+}
+
+@keyframes walkCircle{
+    from{
+        transform:rotate(0deg) translateX(150px) rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg) translateX(150px) rotate(-360deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h2>Simple Animation Example</h2>
+
+<div class="scene">
+
+    <div class="missiles">
+        <div class="missile"></div>
+        <div class="missile"></div>
+        <div class="missile"></div>
+        <div class="label">Nuclear Missiles</div>
+    </div>
+
+    <div class="character">
+        <div class="head"></div>
+        <div class="body"></div>
+        <div style="font-size:10px;text-align:center;">Kim Jong Un</div>
+    </div>
+
+</div>
+
+<p>Basic HTML/CSS animation demonstration.</p>
+
+</body>
+</html>
